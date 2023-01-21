@@ -9,6 +9,7 @@ export const Layout = () => {
   const isNonMobile = useMediaQuery("(mid-width: 600px)");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   return (
+    // I think there is an issue with isNonMobile somewhere causing the nav to not flex
     <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
       <Sidebar
         isNonMobile={isNonMobile}
