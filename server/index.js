@@ -10,6 +10,10 @@ import generalRoutes from "./routes/general.js";
 import managementRoutes from "./routes/management.js";
 import salesRoutes from "./routes/sales.js";
 
+// Data import
+import User from "./models/User.js";
+import {dataUser} from "./data/index.js";
+
 // Configuration
 
 dotenv.config();
@@ -38,5 +42,9 @@ mongoose
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+
+    // Bulk write mock data to MongoDB
+    
+    // User.insertMany(dataUser);
   })
   .catch((error) => console.log(`${error} did not connect`));
