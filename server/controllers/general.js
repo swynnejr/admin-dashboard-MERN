@@ -1,5 +1,6 @@
 import User from "../models/User.js";
 
+// Called by server/routes/general.js when client/src/state/api.js hits http://.../general/user/[id] 
 export const getUser = async (req, res) => {
   try {
     const { id } = req.params;
