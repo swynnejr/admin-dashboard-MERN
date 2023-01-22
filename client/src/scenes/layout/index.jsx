@@ -17,13 +17,17 @@ export const Layout = () => {
     // I think there is an issue with isNonMobile somewhere causing the nav to not flex
     <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
       <Sidebar
+        // Pass in an empty object until the promise of data is completed
+        user={data || {}}
         isNonMobile={isNonMobile}
         drawerWidth="250px"
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
-      />
+        />
       <Box flexGrow={1}>
         <Navbar
+        // Pass in an empty object until the promise of data is completed
+          user={data || {}}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
         />
