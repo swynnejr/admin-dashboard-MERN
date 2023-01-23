@@ -4,8 +4,9 @@ import { useSelector } from "react-redux";
 import { themeSettings } from "theme";
 import { useMemo } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { Layout } from "scenes/layout";
-import { Dashboard } from "scenes/dashboard";
+import Layout from "scenes/layout";
+import Dashboard from "scenes/dashboard";
+import Products from "scenes/products";
 
 function App() {
   // Grabs State and passes in the theme settings to the mode in the format Material UI wants
@@ -23,6 +24,7 @@ function App() {
               {/* Send home page traffic to dashboard */}
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/products" element={<Products />} />
             </Route>
           </Routes>
         </ThemeProvider>
