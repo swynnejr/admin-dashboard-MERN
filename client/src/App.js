@@ -7,6 +7,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Layout from "scenes/layout";
 import Dashboard from "scenes/dashboard";
 import Products from "scenes/products";
+import Customers from "scenes/customers";
 
 function App() {
   // Grabs State and passes in the theme settings to the mode in the format Material UI wants
@@ -25,6 +26,7 @@ function App() {
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/customers" element={<Customers />} />
             </Route>
           </Routes>
         </ThemeProvider>
