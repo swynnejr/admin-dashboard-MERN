@@ -9,6 +9,7 @@ import Dashboard from "scenes/dashboard";
 import Products from "scenes/products";
 import Customers from "scenes/customers";
 import Transactions from "scenes/transactions";
+import Geography from "scenes/geography";
 
 function App() {
   // Grabs State and passes in the theme settings to the mode in the format Material UI wants
@@ -29,6 +30,7 @@ function App() {
               <Route path="/products" element={<Products />} />
               <Route path="/customers" element={<Customers />} />
               <Route path="/transactions" element={<Transactions />} />
+              <Route path="/geography" element={<Geography />} />
             </Route>
           </Routes>
         </ThemeProvider>
