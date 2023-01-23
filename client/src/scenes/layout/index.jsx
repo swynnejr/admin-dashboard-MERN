@@ -6,7 +6,7 @@ import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
 import { useGetUserQuery } from "state/api";
 
-export const Layout = () => {
+function Layout() {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   // Grab user id from Redux Tool Kit aka "RTK"
@@ -23,10 +23,10 @@ export const Layout = () => {
         drawerWidth="250px"
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
-        />
+      />
       <Box flexGrow={1}>
         <Navbar
-        // Pass in an empty object until the promise of data is completed
+          // Pass in an empty object until the promise of data is completed
           user={data || {}}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
@@ -35,4 +35,6 @@ export const Layout = () => {
       </Box>
     </Box>
   );
-};
+}
+
+export default Layout;
