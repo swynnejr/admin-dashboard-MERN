@@ -12,7 +12,9 @@ import salesRoutes from "./routes/sales.js";
 
 // Data import
 import User from "./models/User.js";
-import {dataUser} from "./data/index.js";
+import Product from "./models/Product.js";
+import ProductStat from "./models/ProductStat.js";
+import { dataUser, dataProduct, dataProductStat } from "./data/index.js";
 
 // Configuration
 
@@ -44,7 +46,9 @@ mongoose
     app.listen(PORT, () => console.log(`Server is up on port: ${PORT}`));
 
     // Bulk write mock data to MongoDB
-    
+
     // User.insertMany(dataUser);
+    // Product.insertMany(dataProduct);
+    // ProductStat.insertMany(dataProductStat);
   })
   .catch((error) => console.log(`${error} did not connect`));
