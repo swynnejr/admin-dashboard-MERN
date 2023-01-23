@@ -28,6 +28,7 @@ export const getProducts = async (req, res) => {
   }
 };
 
+// Client Side Pagination - This sends ALL customers
 export const getCustomers = async (req, res) => {
   try {
     // .select("-password") removes the password from the user object when it gets sent to front end
