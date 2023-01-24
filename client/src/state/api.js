@@ -10,6 +10,7 @@ export const api = createApi({
     "Transactions",
     "Geography",
     "Sales",
+    "Admins",
   ],
   // getUser function called by server/routes/general.js when client/src/state/api.js hits http://.../general/user/[id]
   endpoints: (build) => ({
@@ -45,6 +46,10 @@ export const api = createApi({
       query: () => "sales/sales",
       providesTags: ["Sales"],
     }),
+    getAdmins: build.query({
+      query: () => "management/admins",
+      providesTags: ["Admins"],
+    }),
   }),
 });
 
@@ -55,4 +60,5 @@ export const {
   useGetTransactionsQuery,
   useGetGeographyQuery,
   useGetSalesQuery,
+  useGetAdminsQuery,
 } = api;
