@@ -11,6 +11,7 @@ export const getAdmins = async (req, res) => {
   }
 };
 
+// Add affiliateStats as a property on the User object
 export const getUserPerformance = async (req, res) => {
   try {
     const { id } = req.params;
