@@ -12,6 +12,7 @@ export const api = createApi({
     "Sales",
     "Admins",
     "Performance",
+    "Dashboard",
   ],
   // getUser function called by server/routes/general.js when client/src/state/api.js hits http://.../general/user/[id]
   endpoints: (build) => ({
@@ -55,6 +56,10 @@ export const api = createApi({
       query: (id) => `management/performance/${id}`,
       providesTags: ["Performance"],
     }),
+    getDashboard: build.query({
+      query: () => "general/dashboard",
+      providesTags: ["Dashboard"],
+    }),
   }),
 });
 
@@ -67,4 +72,5 @@ export const {
   useGetSalesQuery,
   useGetAdminsQuery,
   useGetUserPerformanceQuery,
+  useGetDashboardQuery,
 } = api;
