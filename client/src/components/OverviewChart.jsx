@@ -7,9 +7,11 @@ const OverviewChart = ({ isDashboard = false, view }) => {
   const theme = useTheme();
   const { data, isLoading } = useGetSalesQuery();
 
+  // Formatting data on the front end, since the API endpoint is shared by 4 components with different needs
   const [totalSalesLine, totalUnitsLine] = useMemo(() => {
     if (!data) return [];
 
+    // https://nivo.rocks/line/ has a cool property generation tool
     const { monthlyData } = data;
     const totalSalesLine = {
       id: "totalSales",
@@ -22,6 +24,8 @@ const OverviewChart = ({ isDashboard = false, view }) => {
       data: [],
     };
 
+    // The Object.values() static method returns an array of a given object's own enumerable string-keyed property values.
+    // Basically, a For loop for an object that ignores the keys, and makes an array from the values
     Object.values(monthlyData).reduce(
       (acc, { month, totalSales, totalUnits }) => {
         const curSales = acc.sales + totalSales;
@@ -47,6 +51,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
   if (!data || isLoading) return "Loading...";
 
   return (
+    // https://nivo.rocks/line/ has a cool property generation tool
     <ResponsiveLine
       data={view === "sales" ? totalSalesLine : totalUnitsLine}
       theme={{
@@ -97,6 +102,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
       axisTop={null}
       axisRight={null}
       axisBottom={{
+        // Abbreviate Month on the dashboard
         format: (v) => {
           if (isDashboard) return v.slice(0, 3);
           return v;
