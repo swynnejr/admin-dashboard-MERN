@@ -14,7 +14,7 @@ function Layout() {
   const { data } = useGetUserQuery(userId);
 
   return (
-    // I think there is an issue with isNonMobile somewhere causing the nav to not flex
+    // TO DO: on mobile the root is too small
     <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
       <Sidebar
         // Pass in an empty object until the promise of data is completed
